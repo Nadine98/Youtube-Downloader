@@ -1,7 +1,6 @@
 from pytube import YouTube
 
 def download_youtube_video(url):
-  
     # Create for the url an YouTube object
     try: 
         yt = YouTube(url)
@@ -9,22 +8,21 @@ def download_youtube_video(url):
         print(f'{url} is not youtube video, try it again\n')
         main()
     
-    # pick a stream and download it
+    # Pick a stream and download it
     stream = yt.streams.filter(progressive = True, res="720p")[0]
 
     try:
-        stream.download()
+        stream.download(output_path='')
     except: 
         print(f'Error occured during downloading {yt.title}')
     
-    
 
 def main(): 
-    url = str(input('URL of the Youtube video: '))
+    url = input('URL of the Youtube video: ')
 
     while("www.youtube.com" not in url):
         print("No Youtube URL was entered - try again")
-        url = str(input('URL of the Youtube video: '))
+        url = input('URL of the Youtube video: ')
     
     download_youtube_video(url)
         
