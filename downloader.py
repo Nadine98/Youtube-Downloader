@@ -15,7 +15,7 @@ def download_youtube_video(url):
     try:
         stream.download()
     except: 
-        print(f'Error occured during downloadign {yt.title}')
+        print(f'Error occured during downloading {yt.title}')
     
     
 
