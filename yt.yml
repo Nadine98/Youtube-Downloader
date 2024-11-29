@@ -1,0 +1,5 @@
+name: yt
+channels:
+  - defaults
+dependencies:
+  - pytubefix = 8.6.0

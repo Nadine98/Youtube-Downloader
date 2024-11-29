@@ -1,4 +1,7 @@
-from pytube import YouTube
+from pytubefix import YouTube
+
+Directory =  " " 
+
 
 def download_youtube_video(url):
     # Create for the url an YouTube object
@@ -9,10 +12,10 @@ def download_youtube_video(url):
         main()
     
     # Pick a stream and download it
-    stream = yt.streams.filter(progressive = True, res="720p")[0]
+    stream = yt.streams.get_highest_resolution()
 
     try:
-        stream.download(output_path='')
+        stream.download(output_path=f'./{Directory}/1{stream.title}')
     except: 
         print(f'Error occured during downloading {yt.title}')
     
